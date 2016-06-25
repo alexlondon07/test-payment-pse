@@ -10,6 +10,12 @@
 </head>
 <body>
   <div class="container">
+    <div class="jumbotron">
+      <h1>Webservice of PSE</h1>
+      <p>Library in PHP that allows you to connect with the webservice of PSE</p>
+      <p>All fields are required...</p>
+      <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+    </div>
     <form role="form">
       <div class="form-group">
         <label for="document">document</label>
