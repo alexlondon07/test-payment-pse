@@ -1,5 +1,23 @@
 {
+  "name": "webservice de PSE",
+    "version": "1.0",
+    "type": "example",
+    "description": "librería en PHP que permita conectarse con el webservice de PSE",
+    "keywords": [
+        "example",
+        "testing"
+    ],
+    "homepage": "alexlondon07.github.io",
+    "time": "2016-06-24",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Londoño Espejo",
+            "homepage": "alexlondon07.github.io"
+        }
+    ],
     "require": {
+        "php": " >= 5.4",
         "monolog/monolog": "1.0.*"
     }
 }
