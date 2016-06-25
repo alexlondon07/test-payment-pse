@@ -1,9 +1,9 @@
 {
-  "name": "webservice de PSE",
+  "name": "test-payment-pse",
     "repositories": [
          {
              "type": "vcs",
-             "url": "https://github.com/alexlondon07/test_payment_pse"
+             "url": "https://github.com/alexlondon07/test-payment-pse"
          }
     ],
     "version": "1.0",
