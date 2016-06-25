@@ -1,5 +1,5 @@
 {
-  "name": "test-payment-pse",
+  "name": "alexlondon07/test-payment-pse",
     "repositories": [
          {
              "type": "vcs",
@@ -7,7 +7,7 @@
          }
     ],
     "version": "1.0",
-    "type": "example",
+    "type": "library",
     "description": "librería en PHP que permita conectarse con el webservice de PSE",
     "keywords": [
         "example",
@@ -19,7 +19,8 @@
     "authors": [
         {
             "name": "Alexander Londoño Espejo",
-            "homepage": "alexlondon07.github.io"
+            "homepage": "alexlondon07.github.io",
+            "role": "Backend Developer"
         }
     ],
     "require": {
