@@ -1,5 +1,11 @@
 {
   "name": "webservice de PSE",
+    "repositories": [
+         {
+             "type": "vcs",
+             "url": "https://github.com/alexlondon07/test_payment_pse"
+         }
+    ],
     "version": "1.0",
     "type": "example",
     "description": "librería en PHP que permita conectarse con el webservice de PSE",
