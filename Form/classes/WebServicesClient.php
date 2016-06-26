@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Clase WebServicesClient para relizar el consumo del servicio web
+ */
 class WebServicesClient {
 
     /**
@@ -63,7 +66,6 @@ class WebServicesClient {
                     'cache_wsdl' => WSDL_CACHE_DISK,
                     'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
                     'default_socket_timeout' => $socketTime,
-//                        'soap_version' => SOAP_1_2
                 ));
             }
 

@@ -61,7 +61,7 @@
         <label for="mobile">mobile</label>
         <input type="text" class="form-control" id="mobile" placeholder="">
       </div>
-      <button type="submit" class="btn btn-default">Enviar</button>
+      <button type="submit" class="btn btn-default">Send</button>
     </form>
   </div>
 </body>

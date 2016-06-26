@@ -3,7 +3,7 @@ date_default_timezone_set("America/Bogota");
 
 /**
  * Description of Util
- *
+ * Funcion donde configuramos la Informacion de nuestro servicio
  * @author Alexander Londoño Espejo.
  */
 class Util {
