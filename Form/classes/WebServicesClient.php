@@ -108,7 +108,7 @@ class WebServicesClient {
             }
             return false;
         } catch (SoapFault $exc) {
-            //print_r($exc->getMessage());
+            print_r($exc->getMessage());
             echo "<pre>";
             print_r($exc->getTrace());
             return false;
