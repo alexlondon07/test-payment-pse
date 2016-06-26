@@ -6,13 +6,18 @@
  */
 class Person {
     /**
-     *
+     * Tipo de documento de identificación de la persona [CC, CE, TI, PPN].
+     * CC = Cédula de ciudanía colombiana
+     * CE = Cédula de extranjería
+     * TI = Tarjeta de identidad PPN = Pasaporte
+     * NIT = Número de identificación tributaria
+     * SSN = Social Security Number
      * @var string $documentType
      */
     public $documentType;
 
     /**
-     *
+     * Número de identificación de la persona
      * @var string $document
      */
     public $document;
