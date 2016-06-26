@@ -18,10 +18,6 @@
     </div>
     <form role="form">
       <div class="form-group">
-        <label for="document">document</label>
-        <input type="text" class="form-control" id="document" name="document" placeholder="">
-      </div>
-      <div class="form-group">
         <label for="firstName">firstName</label>
         <input type="text" class="form-control" id="firstName" name="firstName" placeholder="">
       </div>

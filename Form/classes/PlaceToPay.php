@@ -37,15 +37,4 @@ class PlaceToPay {
         }
     }
 
-    /**
-     * [createTransaction description]
-     * Solicita la creación de una transacción. En los datos de la solicitud se especifica quién es el pagador, el comprador y el despacho.
-     * Así mismo para cuál de los bancos habilitados se hace la petición y a que URL de retorno debe el banco redirigir al cuenta habiente.
-     * @param  [type] $objData [description]
-     * @return [type]          [description]
-     */
-    public function createTransaction($objData) {
-
-    }
-
 }
