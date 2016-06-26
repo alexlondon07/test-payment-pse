@@ -9,8 +9,12 @@ include_once 'PlaceToPayDTO.php';
  * @author Alexander Londoño Espejo.
  */
 class PlaceToPay {
-
-    //se consulta la lista de bancos
+    /**
+     * [getBankList description]
+     * Obtiene la lista de bancos disponibles para el establecimiento de comercio en el sistema PSE de ACH Colombia.
+     * @param  [type] $objData [description]
+     * @return [type]          [description]
+     */
     public function getBankList($objData) {
 
         $objWebService = new WebServicesClient();
@@ -31,6 +35,17 @@ class PlaceToPay {
         } else {
             echo 'Error validando url de web service';
         }
+    }
+
+    /**
+     * [createTransaction description]
+     * Solicita la creación de una transacción. En los datos de la solicitud se especifica quién es el pagador, el comprador y el despacho.
+     * Así mismo para cuál de los bancos habilitados se hace la petición y a que URL de retorno debe el banco redirigir al cuenta habiente.
+     * @param  [type] $objData [description]
+     * @return [type]          [description]
+     */
+    public function createTransaction($objData) {
+
     }
 
 }
