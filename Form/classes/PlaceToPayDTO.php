@@ -21,6 +21,14 @@ class PlaceToPayDTO {
         return true;
     }
 
+    /** se valida que los datos para crear la transaction todos esten corrector
+     * [validDataCreateTransaction description]
+     * @return [type] [description]
+     */
+    public function validDataCreateTransaction() {
+        return true;
+    }
+
     /**
      * Metodo para poder obtener la lista de bancos disponibles
      * [getDataBankList description]
@@ -54,19 +62,19 @@ class PlaceToPayDTO {
      * @return [type] [description]
      */
     public function getTransaction() {
-        $objPayer = new Person();
-        $objPayer->documentType = '';
-        $objPayer->document = '';
-        $objPayer->firstName = '';
-        $objPayer->lastName = '';
-        $objPayer->company = '';
-        $objPayer->emailAddress = '';
-        $objPayer->address = '';
-        $objPayer->city = '';
-        $objPayer->province = '';
-        $objPayer->country = '';
-        $objPayer->phone = '';
-        $objPayer->mobile = '';
+      $objPayer = new Person();
+      $objPayer->documentType = 'CC';
+      $objPayer->document = '1038114';
+      $objPayer->firstName = 'Alexander';
+      $objPayer->lastName = 'Londoño';
+      $objPayer->company = 'placetopay';
+      $objPayer->emailAddress = 'usuario@admin.com';
+      $objPayer->address = 'San juan';
+      $objPayer->city = 'Medellin';
+      $objPayer->province = 'antioquia';
+      $objPayer->country = 'colombia';
+      $objPayer->phone = '32789008722';
+      $objPayer->mobile = '3124354323';
 
         $objBuyer = new Person();
         $objBuyer->documentType = '';
@@ -82,6 +90,21 @@ class PlaceToPayDTO {
         $objBuyer->phone = '';
         $objBuyer->mobile = '';
 
+        $objBuyer = new Person();
+        $objBuyer->documentType = 'CC';
+        $objBuyer->document = '1234561';
+        $objBuyer->firstName = 'Pagos online';
+        $objBuyer->lastName = 'medellin';
+        $objBuyer->company = 'paga todo';
+        $objBuyer->emailAddress = 'pagatodo@gmail.com';
+        $objBuyer->address = 'Medellin san juan';
+        $objBuyer->city = 'Medellin';
+        $objBuyer->province = 'Antioquia';
+        $objBuyer->country = 'Colombia';
+        $objBuyer->phone = '2306646';
+        $objBuyer->mobile = '3112569889';
+
+        //envio o transporte
         $objShipping = new Person();
         $objShipping->documentType = '';
         $objShipping->document = '';
@@ -97,22 +120,29 @@ class PlaceToPayDTO {
         $objShipping->mobile = '';
 
         $objTransaction = new Transaction();
-        $objTransaction->bankCode = '';
-        $objTransaction->bankInterface = '';
-        $objTransaction->returnURL = '';
-        $objTransaction->reference = '';
+        $objTransaction->bankCode = '1022';
+        $objTransaction->bankInterface = '0';
+        $objTransaction->returnURL = '  http://localhost:8888/GitHub/test-payment-pse/Form/classes/returnUrl.php';
+
+
+        $objTransaction->reference = '11vvv-95122';
+//        $objTransaction->reference = Util::instance()->getSeed();
         $objTransaction->description = '';
         $objTransaction->language = '';
-        $objTransaction->currency = '';
-        $objTransaction->totalAmount = '';
-        $objTransaction->taxAmount = '';
-        $objTransaction->devolutionBase = '';
-        $objTransaction->tipAmount = '';
+        $objTransaction->currency = 'COP';
+        $objTransaction->totalAmount = '100';
+        $objTransaction->taxAmount = '0';
+        $objTransaction->devolutionBase = '0';
+        $objTransaction->tipAmount = '0';
         $objTransaction->payer = $objPayer;
         $objTransaction->bayer = $objBuyer;
         $objTransaction->shipping = $objShipping;
-        $objTransaction->ipAddress = '';
+        $objTransaction->ipAddress = Util::instance()->getUserIP();
         $objTransaction->userAgent = '';
+
+        $objResponse = new stdClass();
+        $objResponse->auth = $this->getAuth();
+        $objResponse->transaction = $objTransaction;
 
         $objResponse = new stdClass();
         $objResponse->auth = $this->getAuth();

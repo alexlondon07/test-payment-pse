@@ -1,5 +1,6 @@
 <?php
 include_once 'classes/Test.php';
+include_once 'classes/PlaceToPay.php';
 $objTest = new Test();
 $arrBank = $objTest->getBankTest();
 //Mostramos la lista de bancos disponibles √
@@ -7,6 +8,13 @@ $optionBank = '';
 foreach ($arrBank as $key => $value) {
     $optionBank .= "<option value='" . $value->bankCode . "'>" . $value->bankName . "</option>";
 }
+
+
+// $objRequest = new stdClass();
+// $objPlaceToPay = new PlaceToPay();
+// echo '<pre>' . __FILE__ . ':' . __LINE__ . ' {' . print_r($objPlaceToPay->createTransaction($objRequest), true) . '}';
+//     exit;
+
 ?>
 <!DOCTYPE html>
 <html lang="en-us">
@@ -25,7 +33,7 @@ foreach ($arrBank as $key => $value) {
       <p>Library in PHP that allows you to connect with the webservice of PSE</p>
       <p>All fields are required...</p>
     </div>
-    <form id="formcreate" name="formcreate" title="" >
+    <form action="process.php" method="post">
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12-">
