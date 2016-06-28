@@ -11,6 +11,12 @@ include_once 'Transaction.php';
  * @author Alexander Londoño Espejo.
  */
 class PlaceToPay {
+      private $_urlWebService = null;
+
+      public function __construct() {
+          $this->_urlWebService = Util::instance()->strUrlPlaceToPay;
+      }
+
     /**
      * [getBankList description]
      * Obtiene la lista de bancos disponibles para el establecimiento de comercio en el sistema PSE de ACH Colombia.
