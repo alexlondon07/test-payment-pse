@@ -1,3 +1,13 @@
+<?php
+include_once 'classes/Test.php';
+$objTest = new Test();
+$arrBank = $objTest->getBankTest();
+//Mostramos la lista de bancos disponibles √
+$optionBank = '';
+foreach ($arrBank as $key => $value) {
+    $optionBank .= "<option value='" . $value->bankCode . "'>" . $value->bankName . "</option>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -14,51 +24,101 @@
       <h1>Webservice of PSE</h1>
       <p>Library in PHP that allows you to connect with the webservice of PSE</p>
       <p>All fields are required...</p>
-      <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
     </div>
-    <form role="form">
-      <div class="form-group">
-        <label for="firstName">firstName</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="">
+    <form id="formcreate" name="formcreate" title="" >
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12-">
+            <p class="validateTips"></p>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">firstName</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="firstName" id="firstName"  placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">documentType</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="documentType" id="documentType"  placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">document</label>
+                <div class="col-sm-8">
+                  <textarea type="text" class="form-control" name="document" id="document"  placeholder=""></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">emailAddress</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="emailAddress" id="emailAddress" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">address</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="address" id="address" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">city</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="city" id="city" placeholder="">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">province</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="province" id="province" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">country</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="country" id="country" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">phone</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">mobile</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="mobile" id="mobile" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="exampleInputName2">bankName</label>
+                <div class="col-sm-8">
+                  <div class="controls">
+                    <select name="bankName" id="bankName"  class="form-control">
+                      <?php echo $optionBank; ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-horizontal">
+              <div>
+                <h3 style=''>Information Transaction</h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="documentType">documentType</label>
-        <input type="text" class="form-control" id="documentType" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="document">document</label>
-        <input type="text" class="form-control" id="document" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="emailAddress">emailAddress</label>
-        <input type="text" class="form-control" id="emailAddress" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="address">address</label>
-        <input type="text" class="form-control" id="address" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="city">city</label>
-        <input type="text" class="form-control" id="city" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="province">province</label>
-        <input type="text" class="form-control" id="province" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="country">country</label>
-        <input type="text" class="form-control" id="country" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="phone">phone</label>
-        <input type="text" class="form-control" id="phone" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="mobile">mobile</label>
-        <input type="text" class="form-control" id="mobile" placeholder="">
-      </div>
+
       <button type="submit" class="btn btn-default">Send</button>
     </form>
   </div>
+
 </body>
 </html>
