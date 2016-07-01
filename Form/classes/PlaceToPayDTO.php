@@ -52,43 +52,29 @@ class PlaceToPayDTO {
         $objAuth->seed = $strSeed;
         $objAuth->tranKey = Util::instance()->getTranKey(
                 Util::instance()->strTranKey, $strSeed);
-        $objAuth->additional [] = new Item();
+        //$objAuth->additional [] = new Item();
         return $objAuth;
     }
 
     /**
      * Metodo para realizar la trasaccion
-     * [getTransaction description]
+     * [createTransaction description]
      * @return [type] [description]
      */
-    public function getTransaction() {
-      $objPayer = new Person();
-      $objPayer->documentType = 'CC';
-      $objPayer->document = '1038114';
-      $objPayer->firstName = 'Alexander';
-      $objPayer->lastName = 'Londoño';
-      $objPayer->company = 'placetopay';
-      $objPayer->emailAddress = 'usuario@admin.com';
-      $objPayer->address = 'San juan';
-      $objPayer->city = 'Medellin';
-      $objPayer->province = 'antioquia';
-      $objPayer->country = 'colombia';
-      $objPayer->phone = '32789008722';
-      $objPayer->mobile = '3124354323';
-
-        $objBuyer = new Person();
-        $objBuyer->documentType = '';
-        $objBuyer->document = '';
-        $objBuyer->firstName = '';
-        $objBuyer->lastName = '';
-        $objBuyer->company = '';
-        $objBuyer->emailAddress = '';
-        $objBuyer->address = '';
-        $objBuyer->city = '';
-        $objBuyer->province = '';
-        $objBuyer->country = '';
-        $objBuyer->phone = '';
-        $objBuyer->mobile = '';
+    public function createTransaction() {
+        $objPayer = new Person();
+        $objPayer->documentType = 'CC';
+        $objPayer->document = '1038114';
+        $objPayer->firstName = 'Alexander';
+        $objPayer->lastName = 'Londoño';
+        $objPayer->company = 'placetopay';
+        $objPayer->emailAddress = 'usuario@admin.com';
+        $objPayer->address = 'San juan';
+        $objPayer->city = 'Medellin';
+        $objPayer->province = 'antioquia';
+        $objPayer->country = 'colombia';
+        $objPayer->phone = '32789008722';
+        $objPayer->mobile = '3124354323';
 
         $objBuyer = new Person();
         $objBuyer->documentType = 'CC';
@@ -106,39 +92,39 @@ class PlaceToPayDTO {
 
         //envio o transporte
         $objShipping = new Person();
-        $objShipping->documentType = '';
-        $objShipping->document = '';
-        $objShipping->firstName = '';
-        $objShipping->lastName = '';
-        $objShipping->company = '';
-        $objShipping->emailAddress = '';
-        $objShipping->address = '';
-        $objShipping->city = '';
-        $objShipping->province = '';
-        $objShipping->country = '';
-        $objShipping->phone = '';
-        $objShipping->mobile = '';
+        $objShipping->documentType = 'CC';
+        $objShipping->document = '1038114';
+        $objShipping->firstName = 'Alexander';
+        $objShipping->lastName = 'Londoño';
+        $objShipping->company = 'placetopay';
+        $objShipping->emailAddress = 'alexlondon07@gmail.com';
+        $objShipping->address = 'Calle 44';
+        $objShipping->city = 'Medellin';
+        $objShipping->province = 'Antioquia';
+        $objShipping->country = 'Colombia';
+        $objShipping->phone = '3122195522';
+        $objShipping->mobile = '3122195522';
 
         $objTransaction = new Transaction();
         $objTransaction->bankCode = '1022';
         $objTransaction->bankInterface = '0';
-        $objTransaction->returnURL = '  http://localhost:8888/GitHub/test-payment-pse/Form/classes/returnUrl.php';
-
-
-        $objTransaction->reference = '11vvv-95122';
+        //$objTransaction->returnURL = 'http://localhost:3000/GitHub/test-payment-pse/Form/classes/';
+        $objTransaction->returnURL = 'http://produccion.secuencia24.com/alex';
+        $objTransaction->reference = '4';
 //        $objTransaction->reference = Util::instance()->getSeed();
-        $objTransaction->description = '';
-        $objTransaction->language = '';
+        $objTransaction->description = 'Testing Payment';
+        $objTransaction->language = 'ES';
         $objTransaction->currency = 'COP';
-        $objTransaction->totalAmount = '100';
+        $objTransaction->totalAmount = '120000';
         $objTransaction->taxAmount = '0';
         $objTransaction->devolutionBase = '0';
-        $objTransaction->tipAmount = '0';
+        $objTransaction->tipAmount = 'null';
         $objTransaction->payer = $objPayer;
-        $objTransaction->bayer = $objBuyer;
+        $objTransaction->buyer = $objBuyer;
         $objTransaction->shipping = $objShipping;
-        $objTransaction->ipAddress = Util::instance()->getUserIP();
-        $objTransaction->userAgent = '';
+        $objTransaction->ipAddress = '190.159.71.15';
+        //$objTransaction->ipAddress = Util::instance()->getUserIP();
+        $objTransaction->userAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36';
 
         $objResponse = new stdClass();
         $objResponse->auth = $this->getAuth();
@@ -147,6 +133,11 @@ class PlaceToPayDTO {
         $objResponse = new stdClass();
         $objResponse->auth = $this->getAuth();
         $objResponse->transaction = $objTransaction;
+
+        // echo "<pre>";
+        // print_r($objResponse);
+        // exit();
+        return $objResponse;
     }
 
 }

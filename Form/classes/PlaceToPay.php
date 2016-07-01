@@ -24,18 +24,16 @@ class PlaceToPay {
      * @return [type]          [description]
      */
     public function getBankList($objData) {
-
         $objWebService = new WebServicesClient();
-        $url = Util::instance()->strUrlPlaceToPay;
-        if ($objWebService->webServices($url) === true) {
-
+        if ($objWebService->webServices($this->_urlWebService) === true) {
             $method = 'getBankList';
             $objParams = new PlaceToPayDTO();
 
             if ($objParams->validData($objData) === true) {
                 $objWebService->executeMethodWs($method
-                        , $url
-                        , $objParams->getDataBankList($objData));
+                        , $this->_urlWebService
+                        , $objParams->getDataBankList());
+
                 return $objWebService->response->getBankListResult->item;
             } else {
                 echo 'Datos no validos para consultar bancos';

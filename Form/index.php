@@ -1,8 +1,8 @@
 <?php
 include_once 'classes/Test.php';
 include_once 'classes/PlaceToPay.php';
-$objTest = new Test();
-$arrBank = $objTest->getBankTest();
+$objTest = new PlaceToPay();
+$arrBank = $objTest->getBankList();
 //Mostramos la lista de bancos disponibles √
 $optionBank = '';
 foreach ($arrBank as $key => $value) {
