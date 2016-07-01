@@ -110,8 +110,7 @@ class PlaceToPayDTO {
         $objTransaction->bankInterface = '0';
         //$objTransaction->returnURL = 'http://localhost:3000/GitHub/test-payment-pse/Form/classes/';
         $objTransaction->returnURL = 'http://produccion.secuencia24.com/alex';
-        $objTransaction->reference = '4';
-//        $objTransaction->reference = Util::instance()->getSeed();
+        $objTransaction->reference = Util::instance()->getSeed();
         $objTransaction->description = 'Testing Payment';
         $objTransaction->language = 'ES';
         $objTransaction->currency = 'COP';
@@ -123,8 +122,8 @@ class PlaceToPayDTO {
         $objTransaction->buyer = $objBuyer;
         $objTransaction->shipping = $objShipping;
         $objTransaction->ipAddress = '190.159.71.15';
-        //$objTransaction->ipAddress = Util::instance()->getUserIP();
-        $objTransaction->userAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36';
+        $objTransaction->ipAddress = Util::instance()->getUserIP();
+        //$objTransaction->userAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36';
 
         $objResponse = new stdClass();
         $objResponse->auth = $this->getAuth();
@@ -134,9 +133,6 @@ class PlaceToPayDTO {
         $objResponse->auth = $this->getAuth();
         $objResponse->transaction = $objTransaction;
 
-        // echo "<pre>";
-        // print_r($objResponse);
-        // exit();
         return $objResponse;
     }
 
