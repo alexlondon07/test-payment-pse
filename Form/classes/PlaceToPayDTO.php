@@ -61,7 +61,8 @@ class PlaceToPayDTO {
      * [createTransaction description]
      * @return [type] [description]
      */
-    public function createTransaction() {
+    public function createTransaction($objData) {
+        //Comprador
         $objPayer = new Person();
         $objPayer->documentType = 'CC';
         $objPayer->document = '1038114';
@@ -76,6 +77,7 @@ class PlaceToPayDTO {
         $objPayer->phone = '32789008722';
         $objPayer->mobile = '3124354323';
 
+        //Comercio
         $objBuyer = new Person();
         $objBuyer->documentType = 'CC';
         $objBuyer->document = '1234561';

@@ -1,20 +1,21 @@
 <?php
-include_once 'classes/Test.php';
 include_once 'classes/PlaceToPay.php';
-$objTest = new PlaceToPay();
-$arrBank = $objTest->getBankList();
+include_once 'classes/Test.php';
+
+//Bancos Test
+$objTest = new Test();
+$objRequest = new stdClass();
+$arrBank = $objTest->getBankTest();
+
+//Bancos consumiendo el servicio
+//$objPlaceToPay = new PlaceToPay();
+//$arrBank = $objPlaceToPay->getBankList($objRequest);
+
 //Mostramos la lista de bancos disponibles √
 $optionBank = '';
 foreach ($arrBank as $key => $value) {
     $optionBank .= "<option value='" . $value->bankCode . "'>" . $value->bankName . "</option>";
 }
-
-
-// $objRequest = new stdClass();
-// $objPlaceToPay = new PlaceToPay();
-// echo '<pre>' . __FILE__ . ':' . __LINE__ . ' {' . print_r($objPlaceToPay->createTransaction($objRequest), true) . '}';
-//     exit;
-
 ?>
 <!DOCTYPE html>
 <html lang="en-us">
